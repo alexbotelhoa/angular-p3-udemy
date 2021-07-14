@@ -16,6 +16,7 @@ export class ListTaskComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.tasks = this.listAll();
   }
 
   listAll(): Task[] {
@@ -24,14 +25,14 @@ export class ListTaskComponent implements OnInit {
 
   delete($event: any, task: Task): void {
     $event.preventDefault();
-    if (confirm('Deseja delete a task "' + task.name + '"?')) {
+    if (confirm('Deseja delete a tarefa "' + task.name + '"?')) {
       this.taskService.delete(task.id);
       this.tasks = this.listAll();
     }
   }
 
   alterStatus(task: Task): void {
-    if (confirm('Deseja alterar o status da task "' + task.name + '"?')) {
+    if (confirm('Deseja alterar o status da tarefa "' + task.name + '"?')) {
       this.taskService.alterStatus(task.id);
       this.tasks = this.listAll();
     }

@@ -13,6 +13,7 @@
         </tr>
         <tr *ngFor="let task of tasks">
             <td 
+                [taskCompleted]="task.completed"
                 [class.success]="!task.completed">
                 {{ task.name }}
             </td>
